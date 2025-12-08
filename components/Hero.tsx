@@ -3,9 +3,11 @@ import { ChevronDown } from 'lucide-react';
 import { Logo } from './Logo';
 
 const images = [
-  "https://picsum.photos/id/1059/1920/1080", // Generic focus/people
-  "https://picsum.photos/id/1025/1920/1080", // Wrapped/cloth texture like a Gi
-  "https://picsum.photos/id/106/1920/1080",  // Dynamic movement
+  "https://drive.google.com/thumbnail?id=16BXSb6dvt6xig0aCXlEnMiWBHadIo4CL&sz=w1920", // Foto 1
+  "https://drive.google.com/thumbnail?id=16is3HOxgVKdGRGpfeufR46m5tcH1qqPw&sz=w1920", // Foto 2
+  "https://drive.google.com/thumbnail?id=1fN9WCSl6jlTwrrFjWavEAnXv0aZiNuqF&sz=w1920", // Foto 3
+  "https://drive.google.com/thumbnail?id=1-40jvWVkRvcKN_qvaWHrGtCysRGdhv0F&sz=w1920", // Foto 4
+  "https://drive.google.com/thumbnail?id=1IALBywUDTigfl7YoXVIwuCNnHkUu-MIP&sz=w1920", // Foto 5
 ];
 
 export const Hero: React.FC = () => {
