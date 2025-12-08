@@ -105,9 +105,11 @@ const InterviewCard = ({ interview }: { interview: Interview }) => {
 
   const getEmbedUrl = () => {
      if (isYoutube && youtubeId) {
-       // Added origin parameter to avoid configuration errors
+       // Added origin parameter to avoid configuration errors (Error 153)
        const origin = typeof window !== 'undefined' ? window.location.origin : '';
-       return `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1&origin=${origin}`;
+       // Include origin only if it exists to avoid malformed URL
+       const originParam = origin ? `&origin=${origin}` : '';
+       return `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1${originParam}`;
      }
      
      if (isDrive) {
@@ -156,7 +158,11 @@ const InterviewCard = ({ interview }: { interview: Interview }) => {
               src={thumbnailUrl} 
               alt={interview.name} 
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0"
-              onError={() => setImgError(true)}
+              onError={() => {
+                if (!imgError) {
+                  setImgError(true);
+                }
+              }}
             />
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
               <div className="w-14 h-14 bg-sky-500 rounded-full flex items-center justify-center pl-1 transform group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(14,165,233,0.5)]">

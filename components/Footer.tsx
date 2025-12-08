@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Facebook, Instagram, Twitter, Mail, Phone } from 'lucide-react';
+import { Logo } from './Logo';
 
 export const Footer: React.FC = () => {
   return (
@@ -9,11 +10,8 @@ export const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-1">
             <a href="#inicio" className="flex items-center gap-3 mb-6 group">
                {/* Small Footer Logo */}
-               <div className="w-10 h-10 rounded-full border border-yellow-500 bg-black flex items-center justify-center shrink-0">
-                 <svg viewBox="0 0 100 100" className="w-full h-full p-1">
-                  <path d="M50 15 L85 82 L15 82 Z" fill="#EAB308" />
-                  <circle cx="50" cy="58" r="14" fill="#0EA5E9" />
-                </svg>
+               <div className="w-12 h-12 rounded-full border border-yellow-500 bg-black flex items-center justify-center shrink-0 overflow-hidden">
+                 <Logo className="w-full h-full" />
                </div>
                <div className="flex flex-col">
                 <span className="text-2xl font-black tracking-tighter text-white leading-none group-hover:text-yellow-500 transition-colors">

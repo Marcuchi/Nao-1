@@ -23,7 +23,12 @@ const getAiClient = () => {
     // Initialization is moved here to avoid "process is not defined" errors during initial app load
     // if the environment doesn't support global process access immediately.
     try {
-      aiClient = new GoogleGenAI({ apiKey: process.env.API_KEY });
+      // Safe access to process.env to prevent ReferenceError in browser environments
+      const apiKey = (typeof process !== 'undefined' && process.env) ? process.env.API_KEY : '';
+      if (!apiKey) {
+        console.warn("Gemini API Key missing or process.env not accessible");
+      }
+      aiClient = new GoogleGenAI({ apiKey });
     } catch (error) {
       console.error("Failed to initialize Gemini Client:", error);
       throw error;

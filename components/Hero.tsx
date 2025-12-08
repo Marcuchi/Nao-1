@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { Logo } from './Logo';
 
 const images = [
   "https://picsum.photos/id/1059/1920/1080", // Generic focus/people
@@ -41,16 +42,8 @@ export const Hero: React.FC = () => {
         {/* Main Logo Display */}
         <div className="mb-6 md:mb-8 relative group cursor-default">
           <div className="absolute inset-0 bg-sky-500 blur-3xl opacity-20 rounded-full group-hover:opacity-30 transition-opacity"></div>
-          <div className="relative w-32 h-32 md:w-60 md:h-60 rounded-full border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.3)] bg-black overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
-             {/* Carceglia JJS Logo SVG */}
-             <svg viewBox="0 0 100 100" className="w-full h-full p-4">
-               {/* Outer Ring approximation */}
-              <circle cx="50" cy="50" r="48" fill="black" stroke="#EAB308" strokeWidth="0.5" />
-              {/* Triangle */}
-              <path d="M50 15 L88 85 L12 85 Z" fill="#EAB308" />
-              {/* Inner Circle */}
-              <circle cx="50" cy="58" r="18" fill="#0EA5E9" />
-            </svg>
+          <div className="relative w-40 h-40 md:w-64 md:h-64 rounded-full shadow-[0_0_30px_rgba(234,179,8,0.3)] bg-black overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
+             <Logo className="w-full h-full" />
           </div>
         </div>
 

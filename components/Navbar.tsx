@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { NavItem } from '../types';
+import { Logo } from './Logo';
 
 const navItems: NavItem[] = [
   { label: 'Inicio', href: '#inicio' },
@@ -84,13 +85,9 @@ export const Navbar: React.FC = () => {
           onClick={(e) => scrollToSection(e, '#inicio')}
           className="flex items-center gap-3 group"
         >
-          {/* Carceglia JJS Logo SVG */}
-          <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.5)] bg-black flex items-center justify-center">
-             <svg viewBox="0 0 100 100" className="w-full h-full p-1">
-              <circle cx="50" cy="50" r="48" fill="black" />
-              <path d="M50 15 L85 82 L15 82 Z" fill="#EAB308" />
-              <circle cx="50" cy="58" r="14" fill="#0EA5E9" />
-            </svg>
+          {/* Logo Component */}
+          <div className="relative w-12 h-12 rounded-full overflow-hidden shadow-[0_0_10px_rgba(234,179,8,0.5)] bg-black flex items-center justify-center transition-transform group-hover:scale-105">
+             <Logo className="w-full h-full" />
           </div>
           <div className="flex flex-col">
              <span className="text-lg font-black tracking-tighter text-white leading-none group-hover:text-yellow-500 transition-colors">
