@@ -1,9 +1,5 @@
 import { GoogleGenAI, Chat } from "@google/genai";
 
-// Initialize the client. The API key is assumed to be in process.env.API_KEY
-// as per the environment instructions.
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-
 // System instruction to give the bot a persona
 const SYSTEM_INSTRUCTION = `
 Eres "Sensei AI", un asistente virtual experto en Jiu-Jitsu Brasileño (BJJ) y el anfitrión digital del "Encuentro Anual del Carceglia Team".
@@ -20,9 +16,25 @@ Mantén las respuestas concisas (máximo 3 párrafos) y motivadoras. Usa frases 
 `;
 
 let chatSession: Chat | null = null;
+let aiClient: GoogleGenAI | null = null;
+
+const getAiClient = () => {
+  if (!aiClient) {
+    // Initialization is moved here to avoid "process is not defined" errors during initial app load
+    // if the environment doesn't support global process access immediately.
+    try {
+      aiClient = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    } catch (error) {
+      console.error("Failed to initialize Gemini Client:", error);
+      throw error;
+    }
+  }
+  return aiClient;
+};
 
 export const getChatSession = (): Chat => {
   if (!chatSession) {
+    const ai = getAiClient();
     chatSession = ai.chats.create({
       model: 'gemini-2.5-flash',
       config: {

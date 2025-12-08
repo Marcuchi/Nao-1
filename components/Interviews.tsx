@@ -89,6 +89,7 @@ const getYoutubeId = (url: string) => {
 // Component defined OUTSIDE to prevent re-creation on every render
 const InterviewCard = ({ interview }: { interview: Interview }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [imgError, setImgError] = useState(false);
   
   if (!interview || !interview.videoUrl) return null;
 
@@ -97,15 +98,14 @@ const InterviewCard = ({ interview }: { interview: Interview }) => {
   const isDrive = interview.videoUrl.includes('drive.google.com');
   const useIframe = isDrive || isYoutube;
 
-  // Dynamic thumbnail: use YouTube sddefault (Standard Definition) for better quality than hqdefault
-  const thumbnailUrl = isYoutube && youtubeId 
+  // Use YouTube thumbnail if available and not errored, otherwise fallback to interview.imageUrl
+  const thumbnailUrl = (isYoutube && youtubeId && !imgError)
     ? `https://img.youtube.com/vi/${youtubeId}/sddefault.jpg`
     : interview.imageUrl;
 
   const getEmbedUrl = () => {
      if (isYoutube && youtubeId) {
-       // Simplified embed URL to avoid "Configuration Error" (Error 153)
-       // Added 'origin' parameter which is crucial for some environments
+       // Added origin parameter to avoid configuration errors
        const origin = typeof window !== 'undefined' ? window.location.origin : '';
        return `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1&origin=${origin}`;
      }
@@ -156,12 +156,7 @@ const InterviewCard = ({ interview }: { interview: Interview }) => {
               src={thumbnailUrl} 
               alt={interview.name} 
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0"
-              onError={(e) => {
-                // Fix infinite loop: check if we are already using the fallback
-                if (e.currentTarget.src !== interview.imageUrl) {
-                   e.currentTarget.src = interview.imageUrl;
-                }
-              }}
+              onError={() => setImgError(true)}
             />
             <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
               <div className="w-14 h-14 bg-sky-500 rounded-full flex items-center justify-center pl-1 transform group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(14,165,233,0.5)]">
