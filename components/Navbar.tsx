@@ -94,7 +94,7 @@ export const Navbar: React.FC = () => {
           </div>
           <div className="flex flex-col">
              <span className="text-lg font-black tracking-tighter text-white leading-none group-hover:text-yellow-500 transition-colors">
-              CARCEGLIA <span className="text-sky-500 group-hover:text-sky-400">JJS</span>
+              CARCEGLIA <span className="text-sky-500 group-hover:text-sky-400">TEAM</span>
             </span>
             <span className="text-[10px] text-yellow-500 font-bold tracking-widest uppercase">
               Brazilian Jiu Jitsu

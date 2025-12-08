@@ -59,7 +59,7 @@ export const Hero: React.FC = () => {
         </span>
         
         <h1 className="text-4xl md:text-7xl font-black text-white mb-4 md:mb-6 leading-tight tracking-tight uppercase">
-          Carceglia <span className="text-yellow-500">JJS</span><br/>
+          Carceglia <span className="text-yellow-500">Team</span><br/>
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-sky-600 text-2xl md:text-5xl block mt-2">
             Brazilian Jiu Jitsu
           </span>
