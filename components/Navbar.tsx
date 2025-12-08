@@ -84,7 +84,7 @@ export const Navbar: React.FC = () => {
           onClick={(e) => scrollToSection(e, '#inicio')}
           className="flex items-center gap-3 group"
         >
-          {/* Carceglia Team Logo SVG */}
+          {/* Carceglia JJS Logo SVG */}
           <div className="relative w-10 h-10 rounded-full overflow-hidden border-2 border-yellow-500 shadow-[0_0_10px_rgba(234,179,8,0.5)] bg-black flex items-center justify-center">
              <svg viewBox="0 0 100 100" className="w-full h-full p-1">
               <circle cx="50" cy="50" r="48" fill="black" />
@@ -94,7 +94,7 @@ export const Navbar: React.FC = () => {
           </div>
           <div className="flex flex-col">
              <span className="text-lg font-black tracking-tighter text-white leading-none group-hover:text-yellow-500 transition-colors">
-              CARCEGLIA <span className="text-sky-500 group-hover:text-sky-400">TEAM</span>
+              CARCEGLIA <span className="text-sky-500 group-hover:text-sky-400">JJS</span>
             </span>
             <span className="text-[10px] text-yellow-500 font-bold tracking-widest uppercase">
               Brazilian Jiu Jitsu

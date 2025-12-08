@@ -17,7 +17,7 @@ export const Footer: React.FC = () => {
                </div>
                <div className="flex flex-col">
                 <span className="text-2xl font-black tracking-tighter text-white leading-none group-hover:text-yellow-500 transition-colors">
-                  CARCEGLIA <span className="text-sky-500">TEAM</span>
+                  CARCEGLIA <span className="text-sky-500">JJS</span>
                 </span>
                 <span className="text-[10px] text-yellow-500 font-bold tracking-widest uppercase">
                   Brazilian Jiu Jitsu
@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-4 text-slate-500 text-sm">
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-sky-500" />
-                <span>contacto@carcegliateam.com</span>
+                <span>contacto@carcegliajjs.com</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-sky-500" />
@@ -70,7 +70,7 @@ export const Footer: React.FC = () => {
         </div>
 
         <div className="border-t border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-slate-600">
-          <p>&copy; 2024 Carceglia Team. Todos los derechos reservados.</p>
+          <p>&copy; 2024 Carceglia JJS. Todos los derechos reservados.</p>
           <div className="mt-4 md:mt-0 space-x-6">
             <a href="#" className="hover:text-slate-400">Política de Privacidad</a>
             <a href="#" className="hover:text-slate-400">Términos de Uso</a>

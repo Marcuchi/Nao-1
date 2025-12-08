@@ -42,7 +42,7 @@ export const Hero: React.FC = () => {
         <div className="mb-6 md:mb-8 relative group cursor-default">
           <div className="absolute inset-0 bg-sky-500 blur-3xl opacity-20 rounded-full group-hover:opacity-30 transition-opacity"></div>
           <div className="relative w-32 h-32 md:w-60 md:h-60 rounded-full border-4 border-yellow-500 shadow-[0_0_30px_rgba(234,179,8,0.3)] bg-black overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform duration-700">
-             {/* Carceglia Team Logo SVG */}
+             {/* Carceglia JJS Logo SVG */}
              <svg viewBox="0 0 100 100" className="w-full h-full p-4">
                {/* Outer Ring approximation */}
               <circle cx="50" cy="50" r="48" fill="black" stroke="#EAB308" strokeWidth="0.5" />
@@ -59,7 +59,7 @@ export const Hero: React.FC = () => {
         </span>
         
         <h1 className="text-4xl md:text-7xl font-black text-white mb-4 md:mb-6 leading-tight tracking-tight uppercase">
-          Carceglia <span className="text-yellow-500">Team</span><br/>
+          Carceglia <span className="text-yellow-500">JJS</span><br/>
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-sky-600 text-2xl md:text-5xl block mt-2">
             Brazilian Jiu Jitsu
           </span>
