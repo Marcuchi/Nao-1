@@ -6,7 +6,6 @@ import { History } from './components/History';
 import { Interviews } from './components/Interviews';
 import { Location } from './components/Location';
 import { Footer } from './components/Footer';
-import { ChatWidget } from './components/ChatWidget';
 
 const App: React.FC = () => {
   return (
@@ -18,7 +17,6 @@ const App: React.FC = () => {
       <Interviews />
       <Location />
       <Footer />
-      <ChatWidget />
     </main>
   );
 };
