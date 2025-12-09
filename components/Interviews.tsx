@@ -14,12 +14,12 @@ const interviewData: Interview[] = [
   },
   {
     id: '2',
-    name: 'Prof. Lucía Méndez',
-    role: 'Instructora Senior',
-    quote: "La técnica vence a la fuerza cuando la fuerza no tiene técnica.",
+    name: 'Salvador Domínguez',
+    role: 'Faixa preta, Salta',
+    quote: "el jiujitsu es un arte de la flexibilidad que se puede aplicar a la vida",
     imageUrl: 'https://picsum.photos/id/334/800/600',
     videoDuration: '08:20',
-    videoUrl: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
+    videoUrl: 'https://youtu.be/JTJECCjfKQM'
   },
   {
     id: '3',
@@ -107,8 +107,8 @@ const InterviewCard = ({ interview }: { interview: Interview }) => {
      if (isYoutube && youtubeId) {
        // Added origin parameter to avoid configuration errors (Error 153)
        const origin = typeof window !== 'undefined' ? window.location.origin : '';
-       // Include origin only if it exists to avoid malformed URL
-       const originParam = origin ? `&origin=${origin}` : '';
+       // Include origin only if it exists to avoid malformed URL. Encode it to be safe.
+       const originParam = origin ? `&origin=${encodeURIComponent(origin)}` : '';
        return `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1${originParam}`;
      }
      
