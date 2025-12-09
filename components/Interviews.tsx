@@ -16,19 +16,19 @@ const interviewData: Interview[] = [
     id: '2',
     name: 'Salvador Domínguez',
     role: 'Faixa preta, Salta',
-    quote: "el jiujitsu es un arte de la flexibilidad que se puede aplicar a la vida",
+    quote: "El jiujitsu es un arte de la flexibilidad que se puede aplicar a la vida",
     imageUrl: 'https://picsum.photos/id/334/800/600',
     videoDuration: '08:20',
     videoUrl: 'https://youtu.be/JTJECCjfKQM'
   },
   {
     id: '3',
-    name: 'Carlos "El Roca"',
-    role: 'Organizador del Evento',
-    quote: "Este meeting anual es donde nuestra familia se reúne para celebrar.",
+    name: 'Rocio Medina',
+    role: '1ra faixa marron-(faixa preta actualmente) de Salta',
+    quote: "La mejor faixa para mi siempre fue la blanca y hay que disfrutar el proceso",
     imageUrl: 'https://picsum.photos/id/433/800/600',
     videoDuration: '05:15',
-    videoUrl: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4'
+    videoUrl: 'https://youtu.be/0KB5LmEXgZw'
   },
   {
     id: '4',
@@ -107,7 +107,7 @@ const InterviewCard = ({ interview }: { interview: Interview }) => {
      if (isYoutube && youtubeId) {
        // Added origin parameter to avoid configuration errors (Error 153)
        const origin = typeof window !== 'undefined' ? window.location.origin : '';
-       // Include origin only if it exists to avoid malformed URL. Encode it to be safe.
+       // Include origin only if it exists to avoid malformed URL. Safely encode it.
        const originParam = origin ? `&origin=${encodeURIComponent(origin)}` : '';
        return `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1${originParam}`;
      }
