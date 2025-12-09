@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Play, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { Interview } from '../types';
 
@@ -11,6 +11,15 @@ const interviewData: Interview[] = [
     imageUrl: 'https://picsum.photos/id/338/800/600',
     videoDuration: '12:45',
     videoUrl: 'https://youtu.be/XekW6jv3X7g'
+  },
+  {
+    id: '4',
+    name: 'Prof. Roy Wilhuber',
+    role: 'Filial de Esquel',
+    quote: "Quería ver como el mas chico le ganaba al mas grande, ver la disciplina y eficiencia del arte marcial",
+    imageUrl: 'https://picsum.photos/id/342/800/600',
+    videoDuration: '06:30',
+    videoUrl: 'https://youtu.be/Rr3wt5yX_eU'
   },
   {
     id: '2',
@@ -29,15 +38,6 @@ const interviewData: Interview[] = [
     imageUrl: 'https://picsum.photos/id/433/800/600',
     videoDuration: '05:15',
     videoUrl: 'https://youtu.be/0KB5LmEXgZw'
-  },
-  {
-    id: '4',
-    name: 'Prof. Gabriel Torres',
-    role: 'Filial Zona Norte',
-    quote: "La constancia en el tatami se refleja en la vida diaria.",
-    imageUrl: 'https://picsum.photos/id/342/800/600',
-    videoDuration: '06:30',
-    videoUrl: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4'
   },
   {
     id: '5',
@@ -90,6 +90,7 @@ const getYoutubeId = (url: string) => {
 const InterviewCard = ({ interview }: { interview: Interview }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [imgError, setImgError] = useState(false);
+  const pauseTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   
   if (!interview || !interview.videoUrl) return null;
 
@@ -97,6 +98,55 @@ const InterviewCard = ({ interview }: { interview: Interview }) => {
   const isYoutube = !!youtubeId;
   const isDrive = interview.videoUrl.includes('drive.google.com');
   const useIframe = isDrive || isYoutube;
+
+  // Clear timeout when unmounting or stopping play
+  useEffect(() => {
+    return () => {
+      if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
+    };
+  }, []);
+
+  // Listen for YouTube Iframe API messages
+  useEffect(() => {
+    if (!isPlaying || !isYoutube) return;
+
+    const handleMessage = (event: MessageEvent) => {
+      // Basic check to ensure it's likely from YouTube
+      if (!event.origin.includes('youtube.com')) return;
+
+      try {
+        const data = JSON.parse(event.data);
+        // YouTube API sends 'onStateChange' events
+        // 1 = Playing, 2 = Paused, 0 = Ended
+        if (data.event === 'onStateChange') {
+          if (data.info === 2) { // PAUSED
+             startPauseTimer();
+          } else if (data.info === 1) { // PLAYING
+             clearPauseTimer();
+          } else if (data.info === 0) { // ENDED
+             setIsPlaying(false);
+          }
+        }
+      } catch (e) {
+        // Ignore parsing errors from other sources
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
+  }, [isPlaying, isYoutube]);
+
+  const startPauseTimer = () => {
+    if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
+    // Revert to initial state (thumbnail/B&W) after 20 seconds
+    pauseTimeoutRef.current = setTimeout(() => {
+      setIsPlaying(false);
+    }, 20000);
+  };
+
+  const clearPauseTimer = () => {
+    if (pauseTimeoutRef.current) clearTimeout(pauseTimeoutRef.current);
+  };
 
   // Use YouTube thumbnail if available and not errored, otherwise fallback to interview.imageUrl
   const thumbnailUrl = (isYoutube && youtubeId && !imgError)
@@ -109,7 +159,8 @@ const InterviewCard = ({ interview }: { interview: Interview }) => {
        const origin = typeof window !== 'undefined' ? window.location.origin : '';
        // Include origin only if it exists to avoid malformed URL. Safely encode it.
        const originParam = origin ? `&origin=${encodeURIComponent(origin)}` : '';
-       return `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1${originParam}`;
+       // enablejsapi=1 is required to listen for pause/play events
+       return `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0&modestbranding=1&enablejsapi=1${originParam}`;
      }
      
      if (isDrive) {
@@ -127,7 +178,7 @@ const InterviewCard = ({ interview }: { interview: Interview }) => {
   return (
     <div className="group relative bg-slate-900 rounded-xl overflow-hidden cursor-pointer border border-slate-800 hover:border-yellow-500/30 transition-all h-full flex flex-col">
       {/* Video/Image Container */}
-      <div className="relative h-64 overflow-hidden shrink-0 bg-black">
+      <div className={`relative h-64 overflow-hidden shrink-0 bg-black transition-all duration-500 ${!isPlaying ? 'grayscale group-hover:grayscale-0' : ''}`}>
         {isPlaying ? (
           useIframe ? (
             <iframe 
@@ -145,13 +196,15 @@ const InterviewCard = ({ interview }: { interview: Interview }) => {
               autoPlay
               className="w-full h-full object-cover"
               onEnded={() => setIsPlaying(false)}
+              onPause={startPauseTimer}
+              onPlay={clearPauseTimer}
             >
               Tu navegador no soporta el elemento de video.
             </video>
           )
         ) : (
           <div 
-            className="w-full h-full relative grayscale group-hover:grayscale-0 transition-all duration-500"
+            className="w-full h-full relative"
             onClick={() => setIsPlaying(true)}
           >
             <img 
