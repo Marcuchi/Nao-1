@@ -151,13 +151,13 @@ const InterviewCard = ({ interview }: { interview: Interview }) => {
           )
         ) : (
           <div 
-            className="w-full h-full relative"
+            className="w-full h-full relative grayscale group-hover:grayscale-0 transition-all duration-500"
             onClick={() => setIsPlaying(true)}
           >
             <img 
               src={thumbnailUrl} 
               alt={interview.name} 
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale group-hover:grayscale-0"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               onError={() => {
                 if (!imgError) {
                   setImgError(true);
