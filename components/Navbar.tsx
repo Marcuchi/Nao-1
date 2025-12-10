@@ -8,6 +8,7 @@ const navItems: NavItem[] = [
   { label: 'Sobre el Arte', href: '#arte' },
   { label: 'Historia', href: '#historia' },
   { label: 'Entrevistas', href: '#entrevistas' },
+  { label: 'Galería', href: '#galeria' },
   { label: 'Ubicación', href: '#ubicacion' },
   { label: 'Contacto', href: '#contacto' },
 ];

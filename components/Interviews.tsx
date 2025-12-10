@@ -5,9 +5,9 @@ import { Interview } from '../types';
 const interviewData: Interview[] = [
   {
     id: '1',
-    name: 'Mestre César',
+    name: 'Mestre Cesar Carceglia',
     role: 'Líder Carceglia Team',
-    quote: "El Jiu-Jitsu no es sobre pelear, es sobre sobrevivir y evolucionar.",
+    quote: "Con disciplina y un poco de trabajo todo se puede",
     imageUrl: 'https://picsum.photos/id/338/800/600',
     videoDuration: '12:45',
     videoUrl: 'https://youtu.be/XekW6jv3X7g'
@@ -33,7 +33,7 @@ const interviewData: Interview[] = [
   {
     id: '3',
     name: 'Rocio Medina',
-    role: '1ra faixa marron-(faixa preta actualmente) de Salta',
+    role: '1ra faixa Marrón mujer-(faixa preta actualmente) de Salta',
     quote: "La mejor faixa para mi siempre fue la blanca y hay que disfrutar el proceso",
     imageUrl: 'https://picsum.photos/id/433/800/600',
     videoDuration: '05:15',
@@ -41,30 +41,12 @@ const interviewData: Interview[] = [
   },
   {
     id: '5',
-    name: 'Julieta "La Cobra"',
-    role: 'Competidora Elite',
-    quote: "Cada derrota es una lección aprendida para la próxima victoria.",
+    name: 'Prof. Pablo Pereira',
+    role: 'Faixa Preta-Salta',
+    quote: "El Jiu-jitsu es el arte del eterno aprendizaje",
     imageUrl: 'https://picsum.photos/id/349/800/600',
     videoDuration: '09:10',
-    videoUrl: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4'
-  },
-  {
-    id: '6',
-    name: 'Sensei Roberto',
-    role: 'Director Técnico',
-    quote: "La disciplina es el puente entre las metas y los logros.",
-    imageUrl: 'https://picsum.photos/id/1060/800/600',
-    videoDuration: '10:15',
-    videoUrl: 'https://storage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'
-  },
-  {
-    id: '7',
-    name: 'Camila "Furia"',
-    role: 'Campeona Nacional',
-    quote: "En el tatami no hay género, solo hay técnica y corazón.",
-    imageUrl: 'https://picsum.photos/id/1027/800/600',
-    videoDuration: '07:45',
-    videoUrl: 'https://storage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4'
+    videoUrl: 'https://youtu.be/zxD0fT5F2yk'
   }
 ];
 
