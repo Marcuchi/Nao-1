@@ -22,10 +22,10 @@ export const AboutArt: React.FC = () => {
             </h2>
             <div className="space-y-6 text-slate-400 text-lg leading-relaxed">
               <p>
-                Para el <strong className="text-white">Carceglia Team</strong>, el Jiu-Jitsu Brasileño es más que un sistema de combate; es una herramienta de transformación personal.
+                El Jiu-Jitsu Brasileño (JJB) se encuentra en una etapa de crecimiento sostenido en Argentina y se posiciona como una disciplina con impacto tanto deportivo como social. Su relevancia no reside únicamente en el rendimiento físico, sino también en los valores, hábitos y procesos de transformación personal que promueve. En la academia Carceglia Team esta dimensión formativa es especialmente visible: la primacía de la técnica por sobre la fuerza, la disciplina, el respeto y la idea de “aprender a estar cómodos en la incomodidad”, como expresa su fundador, César Carceglia, constituyen pilares fundamentales del entrenamiento. Estos elementos reflejan el carácter integral del arte marcial y su aporte al desarrollo individual.
               </p>
               <p>
-                A diferencia de otras disciplinas que priorizan los golpes, el JJB promueve el concepto de que una persona más pequeña y débil puede defenderse con éxito contra un agresor más grande y fuerte mediante el uso de la técnica adecuada, el apalancamiento y, sobre todo, llevando la lucha al suelo.
+                Asimismo, el JJB funciona como una herramienta de inclusión social. En sus espacios se conforman comunidades diversas, integradas por personas de distintas edades, géneros y contextos, unidas por un marco común de respeto y cooperación. La expansión de esta mentalidad resulta significativa en términos sociales, educativos y comunitarios, ya que fomenta la resiliencia, la autoconfianza y la capacidad de adaptación frente a los desafíos cotidianos. De esta manera, el Jiu-Jitsu contribuye a la formación de individuos capaces de generar aportes positivos en sus ámbitos de pertenencia.
               </p>
               <div className="grid grid-cols-2 gap-6 mt-8">
                 <div className="p-4 border border-slate-800 border-l-4 border-l-yellow-500 rounded-lg bg-slate-900/50 hover:bg-slate-900 transition-colors">

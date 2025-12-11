@@ -1,10 +1,26 @@
 import React from 'react';
 
 const events = [
-  { year: '1914', title: 'Orígenes', desc: 'Mitsuyo Maeda llega a Brasil y planta la semilla de lo que sería el Jiu-Jitsu Brasileño.' },
-  { year: 'Fundación', title: 'Nace Carceglia Team', desc: 'El Mestre César Carceglia inicia su camino, estableciendo las bases de nuestro equipo y filosofía.' },
-  { year: 'Expansión', title: 'Crecimiento Regional', desc: 'El equipo se expande, formando campeones y abriendo filiales comprometidas con la excelencia técnica.' },
-  { year: '2024', title: 'Encuentro Anual', desc: 'Celebramos un nuevo año de logros, graduaciones y hermandad en nuestro evento más grande hasta la fecha.' },
+  { 
+    year: '1914', 
+    title: 'Orígenes', 
+    desc: 'Mitsuyo Maeda llega a Brasil, conoce a Gastao Gracie quien le enseña a su hijo Carlos Gracie. Pero el que perfecciona la técnica fue su otro hijo Helio Gracie quien más tarde planta la semilla de lo que sería el Jiu-Jitsu Brasileño.' 
+  },
+  { 
+    year: 'Fundación', 
+    title: 'Nace Carceglia Team', 
+    desc: 'El Mestre Cesar Carceglia funda la academia en 2014, logrando introducir el JJB en Córdoba.' 
+  },
+  { 
+    year: 'Expansión', 
+    title: 'Crecimiento Regional', 
+    desc: 'Córdoba al ser una ciudad universitaria le da la oportunidad de al Mestre Cesar de tener alumnos de todos lados del país, los cuales al volver llevaban esta disciplina a sus ciudades.' 
+  },
+  { 
+    year: '2025', 
+    title: 'Encuentro Anual', 
+    desc: 'Esta expansión de la academia se hace más presente que nunca al tener el Meeting Anual. Este año se presentaron mas de 200 personas de todas las filiales de Carceglia Team, viniendo de varias provincias de país.' 
+  },
 ];
 
 export const History: React.FC = () => {
