@@ -17,8 +17,7 @@ export const AboutArt: React.FC = () => {
           
           <div>
             <h2 className="text-4xl font-bold text-white mb-8">
-              El Estilo <span className="text-yellow-500">Carceglia</span>: <br/>
-              <span className="text-sky-500">Eficiencia y Control</span>
+              Sobre el <span className="text-yellow-500">Arte</span>
             </h2>
             <div className="space-y-6 text-slate-400 text-lg leading-relaxed">
               <p>
